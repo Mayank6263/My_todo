@@ -1,0 +1,23 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card" style="width: 25rem; background-color: #f8f5fa;">
+    <div class="card-body">
+      <h1 class="card-title text-center">Login</h1>
+
+      <%= form_with url: sessions_path, method: :post, local: true do |form| %>
+        <div class="mb-3">
+          <%= form.label :email, "Email", class: "form-label" %>
+          <%= form.text_field :email, class: "form-control", placeholder: "Enter Your mail" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :password, "Password", class: "form-label" %>
+          <%= form.password_field :password, class: "form-control", placeholder: "Enter Your Password" %>
+        </div>
+
+        <div class="d-grid">
+          <%= form.submit 'Log In', class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

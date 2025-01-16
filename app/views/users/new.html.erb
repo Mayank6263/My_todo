@@ -1,0 +1,28 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card" style="width: 30rem; background-color: #f8f9fa;">
+    <div class="card-body">
+      <h1 class="card-title text-center">Sign Up</h1>
+
+      <%= form_with model: @user, local: true do |form| %>
+        <div class="mb-3">
+          <%= form.label :email, "Email", class: "form-label" %>
+          <%= form.text_field :email, class: "form-control", placeholder: "Enter Your mail" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :password, "Password", class: "form-label" %>
+          <%= form.password_field :password, class: "form-control", placeholder: "Enter Your password" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :password_confirmation, "Confirm Password", class: "form-label" %>
+          <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Your password" %>
+        </div>
+
+        <div class="d-grid">
+          <%= form.submit 'Create Account', class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

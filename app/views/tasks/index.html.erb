@@ -1,0 +1,38 @@
+<h1>Tasks#index</h1>
+<%= link_to "Add Task", new_task_path, class: "btn btn-success btn-sm" %>
+
+
+<table border="1" style="border-collapse: collapse; width: 100%; margin-top: 5px;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Due Date</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @task.each do |t| %>
+      <tr>
+        <td><%= t.id %></td>
+        <td><%= t.title %></td>
+        <td><%= t.date %></td>
+        <td>
+          <%= form_with url: toggle_completed_task_path(t), method: :patch, local: true do |form| %>
+            <%= form.check_box :completed, { checked: t.completed, class: "form-check-input" }, true, false %>
+            <%= form.submit "Update", class: "btn btn-primary btn-sm" %>
+          <% end %>
+        </td>
+        <td>
+          <div class="btn-group">
+          <%= link_to 'Edit', edit_task_path(t), class:"btn btn-warning btn-sm mr-5"%> |  <%= link_to 'Show', task_path(t), class:"btn btn-primary btn-sm ml-5"%> | <%= button_to 'Delete', task_path(t), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1><%= button_to "Log-Out", logout_path, method: :delete , class:"btn btn-danger btn-sm" %></h1>
+

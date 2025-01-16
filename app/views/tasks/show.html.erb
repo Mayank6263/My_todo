@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="card shadow p-4" style="background-color: #f8f9fa;">
+    <h1 class="text-primary">Task Details</h1>
+    <hr>
+    <p><strong>Task ID:</strong> <%= @task.id %></p>
+    <p><strong>Title:</strong> <%= @task.title %></p>
+    <p><strong>Description:</strong> <%= @task.description %></p>
+    <p><strong>Date:</strong> <%= @task.date %></p>
+    <p><strong>Status:</strong> <%= @task.completed ? "DONE" : "UNDONE" %></p>
+    <div class="mt-3">
+      <%= link_to "Back to Task List", tasks_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
